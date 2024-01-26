@@ -1,8 +1,6 @@
-# Introduction
+# 정제  
 
-This is a book created from markdown and executable code.
-
-See @knuth84 for additional discussion of literate programming.
+여기에 파일 정제 
 
 ```{r}
 1 + 1

@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "emotion2024",
+    "section": "",
+    "text": "상황감정이 환경과 건강 행동에 미치는 영향"
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "1  정제",
+    "section": "",
+    "text": "여기에 파일 정제\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "2  분석",
+    "section": "",
+    "text": "여기에 분석 결과 정리\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+  },
+  {
+    "objectID": "index.html#상황감정이-환경과-건강-행동에-미치는-영향",
+    "href": "index.html#상황감정이-환경과-건강-행동에-미치는-영향",
+    "title": "emotion2024",
+    "section": "상황감정이 환경과 건강 행동에 미치는 영향",
+    "text": "상황감정이 환경과 건강 행동에 미치는 영향"
+  },
+  {
+    "objectID": "index.html#자료-수집-방법",
+    "href": "index.html#자료-수집-방법",
+    "title": "emotion2024",
+    "section": "자료 수집 방법",
+    "text": "자료 수집 방법\n한국 리서치전문회사의 서베이풀 통해 자료 수집\n자료수집기간 2024.1.19 ~ 1.22\n메일 발송 수 2,263건\n접속 수 563명\nn 대상 아님 30명\nn 중도포기자 71명\nn 응답 완료 429명\nu 불성실 제외 22명\n총합계 407명\n할당에 따른 샘플 수\n\n중립 - 문화 - A-&gt;B 20\n중립 - 문화 - B-&gt;A 24\n분노 - 건강 - A-&gt;B 22\n분노 - 건강 - B-&gt;A 25\n분노 - 환경 - A-&gt;B 22\n분노 - 환경 - B-&gt;A 23\n역겨움 - 건강 - A-&gt;B 25\n역겨움 - 건강 - B-&gt;A 22\n역겨움 - 환경 - A-&gt;B 24\n역겨움 - 환경 - B-&gt;A 20\n자부심 - 건강 - A-&gt;B 22\n자부심 - 건강 - B-&gt;A 21\n자부심 - 환경 - A-&gt;B 22\n자부심 - 환경 - B-&gt;A 24\n자비심 - 건강 - A-&gt;B 24\n자비심 - 건강 - B-&gt;A 21\n자비심 - 환경 - A-&gt;B 23\n자비심 - 환경 - B-&gt;A 23\n\n이미지로 감정 조작 3개 집단: 분노, 역겨움, 자비, 자부\n텍스트 메시지 조작 2개 집단: 건강, 환경\n대조집단: 중립이미지 + 문화메시지\n따라서 연구설계는 4 x 2 + 1 으로서 총 9개 집단.\n건강메시지와 환경메시지 이후 설문 순서의 영향을 배제하기 위해 각 집단의 자극물 이후 설문의 순서를 A와 B집단 둘로 나눠 진행. A는 건강 설문 이후 환경 설문 제시"
+  }
+]
