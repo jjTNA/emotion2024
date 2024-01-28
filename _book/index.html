@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.3.306">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -58,8 +92,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-submit-button-title": "Submit"
   }
 }</script>
 
@@ -78,7 +111,7 @@ ul.task-list li input[type="checkbox"] {
       <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">상황감정이 환경과 건강 행동에 미치는 영향</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -137,6 +170,12 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#상황감정이-환경과-건강-행동에-미치는-영향" id="toc-상황감정이-환경과-건강-행동에-미치는-영향" class="nav-link active" data-scroll-target="#상황감정이-환경과-건강-행동에-미치는-영향">상황감정이 환경과 건강 행동에 미치는 영향</a>
   <ul class="collapse">
   <li><a href="#자료-수집-방법" id="toc-자료-수집-방법" class="nav-link" data-scroll-target="#자료-수집-방법">자료 수집 방법</a></li>
+  <li><a href="#전처리" id="toc-전처리" class="nav-link" data-scroll-target="#전처리">전처리</a>
+  <ul class="collapse">
+  <li><a href="#pkg" id="toc-pkg" class="nav-link" data-scroll-target="#pkg">Pkg</a></li>
+  <li><a href="#역코딩" id="toc-역코딩" class="nav-link" data-scroll-target="#역코딩">역코딩</a></li>
+  <li><a href="#변수명-변경" id="toc-변수명-변경" class="nav-link" data-scroll-target="#변수명-변경">변수명 변경</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -213,8 +252,311 @@ ul.task-list li input[type="checkbox"] {
 <p>따라서 연구설계는 4 x 2 + 1 으로서 총 9개 집단.</p>
 <p>건강메시지와 환경메시지 이후 설문 순서의 영향을 배제하기 위해 각 집단의 자극물 이후 설문의 순서를 A와 B집단 둘로 나눠 진행. A는 건강 설문 이후 환경 설문 제시</p>
 <hr>
+</section>
+<section id="전처리" class="level2">
+<h2 class="anchored" data-anchor-id="전처리">전처리</h2>
+<section id="pkg" class="level3">
+<h3 class="anchored" data-anchor-id="pkg">Pkg</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(gtExtras)) remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"jthomasmock/gtExtras"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Le chargement a nécessité le package : gtExtras</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Le chargement a nécessité le package : gt</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: le package 'gt' a été compilé avec la version R 4.2.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">"tidyverse"</span>, <span class="st">"tidytext"</span>, <span class="st">"lubridate"</span>, <span class="st">"here"</span>, <span class="st">"readxl"</span>, </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"writexl"</span>, <span class="st">"gt"</span>, <span class="st">"kableExtra"</span>, <span class="st">"knitr"</span>, <span class="st">"gtExtras"</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"janitor"</span>, <span class="st">"summarytools"</span>, <span class="st">"psych"</span>) <span class="ot">-&gt;</span> pkg_v</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>pkg_v <span class="sc">%in%</span> <span class="fu">installed.packages</span>()[,<span class="st">"Package"</span>] <span class="ot">-&gt;</span> pkg_installed</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>( pkg_v[<span class="sc">!</span>pkg_installed] <span class="ot">-&gt;</span> pkg_new )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>character(0)</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">length</span>(pkg_new)) <span class="fu">install.packages</span>(pkg_new)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(pkg_v, require, <span class="at">ch =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Le chargement a nécessité le package : tidyverse</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
+✔ ggplot2 3.4.1     ✔ purrr   1.0.1
+✔ tibble  3.2.1     ✔ dplyr   1.1.0
+✔ tidyr   1.3.0     ✔ stringr 1.5.0
+✔ readr   2.1.3     ✔ forcats 1.0.0</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: le package 'tibble' a été compilé avec la version R 4.2.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+Le chargement a nécessité le package : tidytext</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: le package 'tidytext' a été compilé avec la version R 4.2.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Le chargement a nécessité le package : lubridate</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: le package 'lubridate' a été compilé avec la version R 4.2.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attachement du package : 'lubridate'
+
+Les objets suivants sont masqués depuis 'package:base':
+
+    date, intersect, setdiff, union
+
+Le chargement a nécessité le package : here</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: le package 'here' a été compilé avec la version R 4.2.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>here() starts at C:/Users/pc/Documents/언론홍보학과/2023년도 2학기/emotions/emotions2024
+Le chargement a nécessité le package : readxl
+Le chargement a nécessité le package : writexl</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: le package 'writexl' a été compilé avec la version R 4.2.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Le chargement a nécessité le package : kableExtra
+
+Attachement du package : 'kableExtra'
+
+L'objet suivant est masqué depuis 'package:dplyr':
+
+    group_rows
+
+Le chargement a nécessité le package : knitr
+Le chargement a nécessité le package : janitor</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: le package 'janitor' a été compilé avec la version R 4.2.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attachement du package : 'janitor'
+
+Les objets suivants sont masqués depuis 'package:stats':
+
+    chisq.test, fisher.test
+
+Le chargement a nécessité le package : summarytools</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: le package 'summarytools' a été compilé avec la version R 4.2.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attachement du package : 'summarytools'
+
+L'objet suivant est masqué depuis 'package:tibble':
+
+    view
+
+Le chargement a nécessité le package : psych</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: le package 'psych' a été compilé avec la version R 4.2.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attachement du package : 'psych'
+
+Les objets suivants sont masqués depuis 'package:ggplot2':
+
+    %+%, alpha</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+[1] TRUE
+
+[[2]]
+[1] TRUE
+
+[[3]]
+[1] TRUE
+
+[[4]]
+[1] TRUE
+
+[[5]]
+[1] TRUE
+
+[[6]]
+[1] TRUE
+
+[[7]]
+[1] TRUE
+
+[[8]]
+[1] TRUE
+
+[[9]]
+[1] TRUE
+
+[[10]]
+[1] TRUE
+
+[[11]]
+[1] TRUE
+
+[[12]]
+[1] TRUE
+
+[[13]]
+[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list.files</span>(<span class="at">path =</span> <span class="st">"data"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "~$emotion2024.xlsx" "df_new.rds"         "emotion2024.xlsx"  </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>df_new <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/df_new.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="역코딩" class="level3">
+<h3 class="anchored" data-anchor-id="역코딩">역코딩</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>df_new <span class="sc">%&gt;%</span> </span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Q3_2_2 =</span> <span class="dv">8</span> <span class="sc">-</span> Q3_2_2, <span class="co"># Q3-2. [가치] 건강보다 더 소중한 것이 많다.</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Q3_2_3 =</span> <span class="dv">8</span> <span class="sc">-</span> Q3_2_3, <span class="co"># Q3-2. [가치] 건강은 행복한 삶에서 그다지 중요하지 않다</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Q6_1_1 =</span> <span class="dv">8</span> <span class="sc">-</span> Q6_1_1, <span class="co"># Q6-1. [진술문] 내게 소중한 주제에 대해 다른 사람들이 동의하지 않을 때, 나는 위축된 느낌이다</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Q6_1_2 =</span> <span class="dv">8</span> <span class="sc">-</span> Q6_1_2, <span class="co"># Q6-1. [진술문] 누군가가 나의 중요한 신념을 반박하면, 인신공격처럼 느껴진다.</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">Q6_1_3 =</span> <span class="dv">8</span> <span class="sc">-</span> Q6_1_3, <span class="co"># Q6-1. [진술문] 내게 소중한 주제에 대해 다른 사람들이 동의하지 않을 때, 나는 위협을 느끼는 경향이 있다</span></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">Q6_2_4 =</span> <span class="dv">8</span> <span class="sc">-</span> Q6_2_4, <span class="co"># Q6-2. [진술문] 대체로 내 생각이 보통 다른 사람의 생각보다 낫다</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">Q6_2_5 =</span> <span class="dv">8</span> <span class="sc">-</span> Q6_2_5, <span class="co"># Q6-2. [진술문] 대부분의 경우, 다른 사람들이 나에게 배워야 할 것이, 내가 다른 사람에게 배울 것보다 더 많다</span></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">Q6_2_6 =</span> <span class="dv">8</span> <span class="sc">-</span> Q6_2_6, <span class="co"># Q6-2. [진술문] 내가 무엇인가에 정말로 확신한다면, 나의 확신이 틀릴 가능성은 거의 없다</span></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="ot">-&gt;</span> df_new</span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>df_new <span class="ot">-&gt;</span> p_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="변수명-변경" class="level3">
+<h3 class="anchored" data-anchor-id="변수명-변경">변수명 변경</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>p_df <span class="sc">%&gt;%</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">ID =</span> <span class="fu">row_number</span>(),</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">id =</span> NO,</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">grp1 =</span> Group_1,</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">grp2 =</span> Group_2,</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">grp3 =</span> Group_3,</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">sex =</span> SQ1, </span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># age = SQ2_0,</span></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">age =</span> SQ2, </span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Q 설문참여 동의</span></span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">sss =</span> Q1,</span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 성향 </span></span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">progress =</span> (Q2_1<span class="sc">+</span>Q2_2<span class="sc">+</span>Q2_3)<span class="sc">/</span><span class="dv">3</span>,</span>
+<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">prg_pol =</span> Q2_1,</span>
+<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">prg_eco =</span> Q2_2,</span>
+<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">pro_tech =</span> Q2_3,</span>
+<span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb31-23"><a href="#cb31-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># values</span></span>
+<span id="cb31-24"><a href="#cb31-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">val_env =</span> (Q3_1_1<span class="sc">+</span> Q3_1_2<span class="sc">+</span>Q3_1_3<span class="sc">+</span>Q3_1_4)<span class="sc">/</span><span class="dv">4</span>,</span>
+<span id="cb31-25"><a href="#cb31-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">val_hlth =</span> (Q3_2_1<span class="sc">+</span> Q3_2_2<span class="sc">+</span>Q3_2_3<span class="sc">+</span>Q3_2_4)<span class="sc">/</span><span class="dv">4</span>,</span>
+<span id="cb31-26"><a href="#cb31-26" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb31-27"><a href="#cb31-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># emotions</span></span>
+<span id="cb31-28"><a href="#cb31-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">compassion =</span> (Q4_1_1<span class="sc">+</span>Q4_1_2<span class="sc">+</span>Q4_1_3<span class="sc">+</span>Q4_1_4<span class="sc">+</span>Q4_1_5)<span class="sc">/</span><span class="dv">5</span>,</span>
+<span id="cb31-29"><a href="#cb31-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">pride =</span> (Q4_2_1<span class="sc">+</span>Q4_2_2<span class="sc">+</span>Q4_2_3<span class="sc">+</span>Q4_2_4<span class="sc">+</span>Q4_2_5)<span class="sc">/</span><span class="dv">5</span>,</span>
+<span id="cb31-30"><a href="#cb31-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">disgust =</span> (Q4_3_1<span class="sc">+</span>Q4_3_2<span class="sc">+</span>Q4_3_3<span class="sc">+</span>Q4_3_4)<span class="sc">/</span><span class="dv">4</span>,</span>
+<span id="cb31-31"><a href="#cb31-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">anger =</span> (Q4_4_1<span class="sc">+</span>Q4_4_2<span class="sc">+</span>Q4_4_3<span class="sc">+</span>Q4_4_4)<span class="sc">/</span><span class="dv">4</span>,</span>
+<span id="cb31-32"><a href="#cb31-32" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb31-33"><a href="#cb31-33" aria-hidden="true" tabindex="-1"></a>    <span class="co">#moral foundations</span></span>
+<span id="cb31-34"><a href="#cb31-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">mfq_care =</span> (Q5_1_1<span class="sc">+</span>Q5_2_1<span class="sc">+</span>Q5_3_1)<span class="sc">/</span><span class="dv">3</span>,</span>
+<span id="cb31-35"><a href="#cb31-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">mfq_fair =</span> (Q5_1_2<span class="sc">+</span>Q5_2_2<span class="sc">+</span>Q5_3_2)<span class="sc">/</span><span class="dv">3</span>,</span>
+<span id="cb31-36"><a href="#cb31-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">mfq_belong =</span> (Q5_1_3<span class="sc">+</span>Q5_2_3<span class="sc">+</span>Q5_3_3)<span class="sc">/</span><span class="dv">3</span>,</span>
+<span id="cb31-37"><a href="#cb31-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">mfq_auth =</span> (Q5_1_4<span class="sc">+</span>Q5_2_4<span class="sc">+</span>Q5_3_4)<span class="sc">/</span><span class="dv">3</span>,</span>
+<span id="cb31-38"><a href="#cb31-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">mfq_pure =</span> (Q5_1_5<span class="sc">+</span>Q5_2_5<span class="sc">+</span>Q5_3_5)<span class="sc">/</span><span class="dv">3</span>,</span>
+<span id="cb31-39"><a href="#cb31-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">mfq_liberty =</span> (Q5_1_6<span class="sc">+</span>Q5_2_6<span class="sc">+</span>Q5_3_6)<span class="sc">/</span><span class="dv">3</span>,</span>
+<span id="cb31-40"><a href="#cb31-40" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb31-41"><a href="#cb31-41" aria-hidden="true" tabindex="-1"></a>    <span class="co"># intellectual humility</span></span>
+<span id="cb31-42"><a href="#cb31-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">int_hum =</span> (Q6_1_1<span class="sc">+</span>Q6_1_2<span class="sc">+</span>Q6_1_3<span class="sc">+</span>Q6_1_4<span class="sc">+</span>Q6_1_5<span class="sc">+</span>Q6_1_6<span class="sc">+</span>Q6_2_1<span class="sc">+</span>Q6_2_2<span class="sc">+</span>Q6_2_3<span class="sc">+</span>Q6_2_4<span class="sc">+</span>Q6_2_5<span class="sc">+</span>Q6_2_6)<span class="sc">/</span><span class="dv">12</span>,</span>
+<span id="cb31-43"><a href="#cb31-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">int_hum_ego =</span> (Q6_1_1<span class="sc">+</span>Q6_1_2<span class="sc">+</span>Q6_1_3)<span class="sc">/</span><span class="dv">3</span>,</span>
+<span id="cb31-44"><a href="#cb31-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">int_hum_rev =</span> (Q6_1_4<span class="sc">+</span>Q6_1_5<span class="sc">+</span>Q6_1_6)<span class="sc">/</span><span class="dv">3</span>,</span>
+<span id="cb31-45"><a href="#cb31-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">int_hum_respect=</span> (Q6_2_1<span class="sc">+</span>Q6_2_2<span class="sc">+</span>Q6_2_3)<span class="sc">/</span><span class="dv">3</span>,</span>
+<span id="cb31-46"><a href="#cb31-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">int_hum_conf=</span> (Q6_2_4<span class="sc">+</span>Q6_2_5<span class="sc">+</span>Q6_2_6)<span class="sc">/</span><span class="dv">3</span>,</span>
+<span id="cb31-47"><a href="#cb31-47" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb31-48"><a href="#cb31-48" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 감정 강도</span></span>
+<span id="cb31-49"><a href="#cb31-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">int_neut1 =</span> Q7_1_1,</span>
+<span id="cb31-50"><a href="#cb31-50" aria-hidden="true" tabindex="-1"></a>    <span class="at">int_neut2 =</span> Q7_1_2,</span>
+<span id="cb31-51"><a href="#cb31-51" aria-hidden="true" tabindex="-1"></a>    <span class="at">int_neut3 =</span> Q7_1_3,</span>
+<span id="cb31-52"><a href="#cb31-52" aria-hidden="true" tabindex="-1"></a>    <span class="at">int_neut4 =</span> Q7_1_4,</span>
+<span id="cb31-53"><a href="#cb31-53" aria-hidden="true" tabindex="-1"></a>    <span class="at">int_neut5 =</span> Q7_1_5,</span>
+<span id="cb31-54"><a href="#cb31-54" aria-hidden="true" tabindex="-1"></a>    <span class="at">int_anger1 =</span> Q7_2_1,</span>
+<span id="cb31-55"><a href="#cb31-55" aria-hidden="true" tabindex="-1"></a>    <span class="at">int_anger2 =</span> Q7_2_2,</span>
+<span id="cb31-56"><a href="#cb31-56" aria-hidden="true" tabindex="-1"></a>    <span class="at">int_anger3 =</span> Q7_2_3,</span>
+<span id="cb31-57"><a href="#cb31-57" aria-hidden="true" tabindex="-1"></a>    <span class="at">int_anger4 =</span> Q7_2_4,</span>
+<span id="cb31-58"><a href="#cb31-58" aria-hidden="true" tabindex="-1"></a>    <span class="at">int_anger5 =</span> Q7_2_5,</span>
+<span id="cb31-59"><a href="#cb31-59" aria-hidden="true" tabindex="-1"></a>    <span class="at">int_disg1 =</span> Q7_3_1,</span>
+<span id="cb31-60"><a href="#cb31-60" aria-hidden="true" tabindex="-1"></a>    <span class="at">int_disg2 =</span> Q7_3_2,</span>
+<span id="cb31-61"><a href="#cb31-61" aria-hidden="true" tabindex="-1"></a>    <span class="at">int_disg3 =</span> Q7_3_3,</span>
+<span id="cb31-62"><a href="#cb31-62" aria-hidden="true" tabindex="-1"></a>    <span class="at">int_disg4 =</span> Q7_3_4,</span>
+<span id="cb31-63"><a href="#cb31-63" aria-hidden="true" tabindex="-1"></a>    <span class="at">int_disg5 =</span> Q7_3_5,</span>
+<span id="cb31-64"><a href="#cb31-64" aria-hidden="true" tabindex="-1"></a>    <span class="at">int_pride1 =</span> Q7_4_1,</span>
+<span id="cb31-65"><a href="#cb31-65" aria-hidden="true" tabindex="-1"></a>    <span class="at">int_pride2 =</span> Q7_4_2,</span>
+<span id="cb31-66"><a href="#cb31-66" aria-hidden="true" tabindex="-1"></a>    <span class="at">int_pride3 =</span> Q7_4_3,</span>
+<span id="cb31-67"><a href="#cb31-67" aria-hidden="true" tabindex="-1"></a>    <span class="at">int_pride4 =</span> Q7_4_4,</span>
+<span id="cb31-68"><a href="#cb31-68" aria-hidden="true" tabindex="-1"></a>    <span class="at">int_pride5 =</span> Q7_4_5,</span>
+<span id="cb31-69"><a href="#cb31-69" aria-hidden="true" tabindex="-1"></a>    <span class="at">int_comp1 =</span> Q7_5_1,</span>
+<span id="cb31-70"><a href="#cb31-70" aria-hidden="true" tabindex="-1"></a>    <span class="at">int_comp2 =</span> Q7_5_2,</span>
+<span id="cb31-71"><a href="#cb31-71" aria-hidden="true" tabindex="-1"></a>    <span class="at">int_comp3 =</span> Q7_5_3,</span>
+<span id="cb31-72"><a href="#cb31-72" aria-hidden="true" tabindex="-1"></a>    <span class="at">int_comp4 =</span> Q7_5_4,</span>
+<span id="cb31-73"><a href="#cb31-73" aria-hidden="true" tabindex="-1"></a>    <span class="at">int_comp5 =</span> Q7_5_5,</span>
+<span id="cb31-74"><a href="#cb31-74" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb31-75"><a href="#cb31-75" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 지금 느끼는 감정</span></span>
+<span id="cb31-76"><a href="#cb31-76" aria-hidden="true" tabindex="-1"></a>    <span class="at">emo_comp =</span> (Q8_1<span class="sc">+</span>Q8_2)<span class="sc">/</span><span class="dv">2</span>,</span>
+<span id="cb31-77"><a href="#cb31-77" aria-hidden="true" tabindex="-1"></a>    <span class="at">emo_pride =</span> (Q8_3<span class="sc">+</span>Q8_4)<span class="sc">/</span><span class="dv">2</span>,</span>
+<span id="cb31-78"><a href="#cb31-78" aria-hidden="true" tabindex="-1"></a>    <span class="at">emo_anger =</span> (Q8_5<span class="sc">+</span>Q8_6)<span class="sc">/</span><span class="dv">2</span>,</span>
+<span id="cb31-79"><a href="#cb31-79" aria-hidden="true" tabindex="-1"></a>    <span class="at">emo_disg =</span> (Q8_7<span class="sc">+</span>Q8_8)<span class="sc">/</span><span class="dv">2</span>,</span>
+<span id="cb31-80"><a href="#cb31-80" aria-hidden="true" tabindex="-1"></a>    <span class="at">emo_sad =</span> (Q8_9<span class="sc">+</span>Q8_10)<span class="sc">/</span><span class="dv">2</span>,</span>
+<span id="cb31-81"><a href="#cb31-81" aria-hidden="true" tabindex="-1"></a>    <span class="at">emo_joy =</span> (Q8_11<span class="sc">+</span>Q8_12)<span class="sc">/</span><span class="dv">2</span>,</span>
+<span id="cb31-82"><a href="#cb31-82" aria-hidden="true" tabindex="-1"></a>    <span class="at">emo_fear =</span> (Q8_13<span class="sc">+</span>Q8_14)<span class="sc">/</span><span class="dv">2</span>,</span>
+<span id="cb31-83"><a href="#cb31-83" aria-hidden="true" tabindex="-1"></a>    <span class="at">emo_curio =</span> (Q8_15<span class="sc">+</span>Q8_16)<span class="sc">/</span><span class="dv">2</span>,</span>
+<span id="cb31-84"><a href="#cb31-84" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb31-85"><a href="#cb31-85" aria-hidden="true" tabindex="-1"></a>  ) <span class="ot">-&gt;</span> v_df</span>
+<span id="cb31-86"><a href="#cb31-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-87"><a href="#cb31-87" aria-hidden="true" tabindex="-1"></a>v_df <span class="sc">%&gt;%</span> <span class="fu">names</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "ID"              "id"              "grp1"            "grp2"           
+ [5] "grp3"            "sex"             "age"             "sss"            
+ [9] "progress"        "prg_pol"         "prg_eco"         "pro_tech"       
+[13] "val_env"         "val_hlth"        "compassion"      "pride"          
+[17] "disgust"         "anger"           "mfq_care"        "mfq_fair"       
+[21] "mfq_belong"      "mfq_auth"        "mfq_pure"        "mfq_liberty"    
+[25] "int_hum"         "int_hum_ego"     "int_hum_rev"     "int_hum_respect"
+[29] "int_hum_conf"    "int_neut1"       "int_neut2"       "int_neut3"      
+[33] "int_neut4"       "int_neut5"       "int_anger1"      "int_anger2"     
+[37] "int_anger3"      "int_anger4"      "int_anger5"      "int_disg1"      
+[41] "int_disg2"       "int_disg3"       "int_disg4"       "int_disg5"      
+[45] "int_pride1"      "int_pride2"      "int_pride3"      "int_pride4"     
+[49] "int_pride5"      "int_comp1"       "int_comp2"       "int_comp3"      
+[53] "int_comp4"       "int_comp5"       "emo_comp"        "emo_pride"      
+[57] "emo_anger"       "emo_disg"        "emo_sad"         "emo_joy"        
+[61] "emo_fear"        "emo_curio"      </code></pre>
+</div>
+</div>
 
 
+</section>
 </section>
 </section>
 
