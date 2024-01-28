@@ -110,3 +110,95 @@ df_new %>%
 
 df_new -> p_df
 ```
+
+### 변수명 변경
+
+```{r}
+p_df %>%
+  transmute(
+    
+    ID = row_number(),
+    id = NO,
+    grp1 = Group_1,
+    grp2 = Group_2,
+    grp3 = Group_3,
+    
+    sex = SQ1, 
+    # age = SQ2_0,
+    age = SQ2, 
+    
+    # Q 설문참여 동의
+    sss = Q1,
+    
+    # 성향 
+    progress = (Q2_1+Q2_2+Q2_3)/3,
+    prg_pol = Q2_1,
+    prg_eco = Q2_2,
+    pro_tech = Q2_3,
+    
+    # values
+    val_env = (Q3_1_1+ Q3_1_2+Q3_1_3+Q3_1_4)/4,
+    val_hlth = (Q3_2_1+ Q3_2_2+Q3_2_3+Q3_2_4)/4,
+    
+    # emotions
+    compassion = (Q4_1_1+Q4_1_2+Q4_1_3+Q4_1_4+Q4_1_5)/5,
+    pride = (Q4_2_1+Q4_2_2+Q4_2_3+Q4_2_4+Q4_2_5)/5,
+    disgust = (Q4_3_1+Q4_3_2+Q4_3_3+Q4_3_4)/4,
+    anger = (Q4_4_1+Q4_4_2+Q4_4_3+Q4_4_4)/4,
+    
+    #moral foundations
+    mfq_care = (Q5_1_1+Q5_2_1+Q5_3_1)/3,
+    mfq_fair = (Q5_1_2+Q5_2_2+Q5_3_2)/3,
+    mfq_belong = (Q5_1_3+Q5_2_3+Q5_3_3)/3,
+    mfq_auth = (Q5_1_4+Q5_2_4+Q5_3_4)/3,
+    mfq_pure = (Q5_1_5+Q5_2_5+Q5_3_5)/3,
+    mfq_liberty = (Q5_1_6+Q5_2_6+Q5_3_6)/3,
+    
+    # intellectual humility
+    int_hum = (Q6_1_1+Q6_1_2+Q6_1_3+Q6_1_4+Q6_1_5+Q6_1_6+Q6_2_1+Q6_2_2+Q6_2_3+Q6_2_4+Q6_2_5+Q6_2_6)/12,
+    int_hum_ego = (Q6_1_1+Q6_1_2+Q6_1_3)/3,
+    int_hum_rev = (Q6_1_4+Q6_1_5+Q6_1_6)/3,
+    int_hum_respect= (Q6_2_1+Q6_2_2+Q6_2_3)/3,
+    int_hum_conf= (Q6_2_4+Q6_2_5+Q6_2_6)/3,
+    
+    # 감정 강도
+    int_neut1 = Q7_1_1,
+    int_neut2 = Q7_1_2,
+    int_neut3 = Q7_1_3,
+    int_neut4 = Q7_1_4,
+    int_neut5 = Q7_1_5,
+    int_anger1 = Q7_2_1,
+    int_anger2 = Q7_2_2,
+    int_anger3 = Q7_2_3,
+    int_anger4 = Q7_2_4,
+    int_anger5 = Q7_2_5,
+    int_disg1 = Q7_3_1,
+    int_disg2 = Q7_3_2,
+    int_disg3 = Q7_3_3,
+    int_disg4 = Q7_3_4,
+    int_disg5 = Q7_3_5,
+    int_pride1 = Q7_4_1,
+    int_pride2 = Q7_4_2,
+    int_pride3 = Q7_4_3,
+    int_pride4 = Q7_4_4,
+    int_pride5 = Q7_4_5,
+    int_comp1 = Q7_5_1,
+    int_comp2 = Q7_5_2,
+    int_comp3 = Q7_5_3,
+    int_comp4 = Q7_5_4,
+    int_comp5 = Q7_5_5,
+    
+    # 지금 느끼는 감정
+    emo_comp = (Q8_1+Q8_2)/2,
+    emo_pride = (Q8_3+Q8_4)/2,
+    emo_anger = (Q8_5+Q8_6)/2,
+    emo_disg = (Q8_7+Q8_8)/2,
+    emo_sad = (Q8_9+Q8_10)/2,
+    emo_joy = (Q8_11+Q8_12)/2,
+    emo_fear = (Q8_13+Q8_14)/2,
+    emo_curio = (Q8_15+Q8_16)/2,
+    
+  ) -> v_df
+
+v_df %>% names()
+```
